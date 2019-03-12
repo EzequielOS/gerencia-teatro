@@ -17,6 +17,7 @@ public class Papel implements Serializable {
 	private String nomePersonagem;
 	private BigDecimal acrescimos;
 	private Ator ator;
+	private Peca peca;
 
 	public Papel() {
 
@@ -58,6 +59,14 @@ public class Papel implements Serializable {
 
 	public void setAtor(Ator ator) {
 		this.ator = ator;
+	}
+
+	public Peca getPeca() {
+		return peca;
+	}
+
+	public void setPeca(Peca peca) {
+		this.peca = peca;
 	}
 
 	@Override
