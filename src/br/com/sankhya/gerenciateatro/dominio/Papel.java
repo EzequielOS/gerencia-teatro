@@ -33,10 +33,6 @@ public class Papel implements Serializable {
 		return ID;
 	}
 
-	public void setID(Integer iD) {
-		ID = iD;
-	}
-
 	public String getNomePersonagem() {
 		return nomePersonagem;
 	}
@@ -92,6 +88,11 @@ public class Papel implements Serializable {
 		} else if (!ID.equals(other.ID))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Papel [ID= " + ID + ", nomePersonagem= " + nomePersonagem + ", acrescimos= " + acrescimos + "]";
 	}
 
 	public BigDecimal exibirSalarioComAcrescimos() {

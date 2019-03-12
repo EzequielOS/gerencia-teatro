@@ -36,10 +36,6 @@ public class Ator implements Serializable {
 		return ID;
 	}
 
-	public void setID(Integer iD) {
-		ID = iD;
-	}
-
 	public String getNome() {
 		return nome;
 	}
@@ -95,5 +91,11 @@ public class Ator implements Serializable {
 		} else if (!ID.equals(other.ID))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Ator [ID=" + ID + ", nome=" + nome + ", nacionalidade=" + nacionalidade + ", salario=" + salario
+				+ "]";
 	}
 }

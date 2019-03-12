@@ -9,11 +9,13 @@ package br.com.sankhya.gerenciateatro.dominio;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Peca implements Serializable {
+	SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
 	private static final long serialVersionUID = 1L;
 	private Integer ID;
@@ -23,9 +25,9 @@ public class Peca implements Serializable {
 	private List<Papel> papeis = new ArrayList<>();
 
 	public Peca() {
-		
+
 	}
-	
+
 	public Peca(Integer iD, String titulo, Integer duracao, Date data) {
 		super();
 		ID = iD;
@@ -69,14 +71,45 @@ public class Peca implements Serializable {
 	public void setPapeis(List<Papel> papeis) {
 		this.papeis = papeis;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((ID == null) ? 0 : ID.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Peca other = (Peca) obj;
+		if (ID == null) {
+			if (other.ID != null)
+				return false;
+		} else if (!ID.equals(other.ID))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Peca [ID= " + ID + ", titulo= " + titulo + ", duracao= " + duracao + " min" + ", data= "
+				+ formato.format(data) + " Custo= " + exibirCustoTotal() + "$ " +"]";
+	}
+
 	public BigDecimal exibirCustoTotal() {
-		BigDecimal custoTotal = new BigDecimal("");
-		for(Papel papel : papeis) {
-			custoTotal.add(papel.exibirSalarioComAcrescimos());
+		BigDecimal custoTotal = new BigDecimal(0);
+		for (Papel papel : papeis) {
+			custoTotal = papel.exibirSalarioComAcrescimos().add(custoTotal);
 		}
 		return custoTotal;
-		
+
 	}
 
 }
