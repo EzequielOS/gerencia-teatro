@@ -18,6 +18,16 @@ public class Papel implements Serializable {
 	private BigDecimal acrescimos;
 	private Ator ator;
 
+	public Papel() {
+
+	}
+
+	public Papel(Integer ID, String nomePersonagem, BigDecimal acrescimos) {
+		this.ID = ID;
+		this.nomePersonagem = nomePersonagem;
+		this.acrescimos = acrescimos;
+	}
+
 	public Integer getID() {
 		return ID;
 	}

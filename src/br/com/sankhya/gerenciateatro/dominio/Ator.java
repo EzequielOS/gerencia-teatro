@@ -21,6 +21,17 @@ public class Ator implements Serializable {
 	private BigDecimal salario;
 	private List<Papel> papeis = new ArrayList<>();
 
+	public Ator() {
+
+	}
+
+	public Ator(Integer ID, String nome, String nacionalidade, BigDecimal salario) {
+		this.ID = ID;
+		this.nome = nome;
+		this.nacionalidade = nacionalidade;
+		this.salario = salario;
+	}
+
 	public Integer getID() {
 		return ID;
 	}
