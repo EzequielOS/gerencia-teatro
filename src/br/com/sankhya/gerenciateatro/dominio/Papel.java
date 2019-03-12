@@ -1,7 +1,7 @@
 /*
 Nome do autor: Ezequiel de Oliveira Sant'Ana
 Data de criacaoo do arquivo: 08/03/2019
-Objetivo sucinto da classe: Cria classe Ator que implementa relacionamento com Papel
+Objetivo sucinto da classe: Cria classe Papel que implementa relacionamentos com Ator e Peça
 Escopo do projeto: https://docs.google.com/document/d/1ewS7W5Lacoxjorj8NxD3zc2uH32P5fWOu2xqjVTWym0/edit
 */
 
@@ -9,17 +9,14 @@ package br.com.sankhya.gerenciateatro.dominio;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Ator implements Serializable {
+public class Papel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private Integer ID;
-	private String nome;
-	private String nacionalidade;
-	private BigDecimal salario;
-	private List<Papel> papeis = new ArrayList<>();
+	private String nomePersonagem;
+	private BigDecimal acrescimos;
+	private Ator ator;
 
 	public Integer getID() {
 		return ID;
@@ -29,36 +26,28 @@ public class Ator implements Serializable {
 		ID = iD;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getNomePersonagem() {
+		return nomePersonagem;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNomePersonagem(String nomePersonagem) {
+		this.nomePersonagem = nomePersonagem;
 	}
 
-	public String getNacionalidade() {
-		return nacionalidade;
+	public BigDecimal getAcrescimos() {
+		return acrescimos;
 	}
 
-	public void setNacionalidade(String nacionalidade) {
-		this.nacionalidade = nacionalidade;
+	public void setAcrescimos(BigDecimal acrescimos) {
+		this.acrescimos = acrescimos;
 	}
 
-	public BigDecimal getSalario() {
-		return salario;
+	public Ator getAtor() {
+		return ator;
 	}
 
-	public void setSalario(BigDecimal salario) {
-		this.salario = salario;
-	}
-
-	public List<Papel> getPapeis() {
-		return papeis;
-	}
-
-	public void setPapeis(List<Papel> papeis) {
-		this.papeis = papeis;
+	public void setAtor(Ator ator) {
+		this.ator = ator;
 	}
 
 	@Override
@@ -77,7 +66,7 @@ public class Ator implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Ator other = (Ator) obj;
+		Papel other = (Papel) obj;
 		if (ID == null) {
 			if (other.ID != null)
 				return false;
@@ -85,4 +74,11 @@ public class Ator implements Serializable {
 			return false;
 		return true;
 	}
+
+	public BigDecimal exibirSalarioComAcrescimos() {
+		BigDecimal soma = acrescimos.add(ator.getSalario());
+		return soma;
+
+	}
+
 }
