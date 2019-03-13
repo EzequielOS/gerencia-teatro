@@ -51,6 +51,7 @@ public class GerenciaTeatro {
 		System.out.println(escolinha);
 		System.out.println(diretor);
 		System.out.println(meweni);
+		System.out.println("Salario com acrescimos: " + diretor.exibirSalarioComAcrescimos());
 		
 	}
 }
