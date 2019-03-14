@@ -3,8 +3,6 @@ Nome do autor: Ezequiel de Oliveira Sant'Ana
 Data de criacaoo do arquivo: 12/03/2019
 Objetivo sucinto da classe: Cria classe main do projeto Gerenciador de Teatro
 Escopo do projeto: https://docs.google.com/document/d/1ewS7W5Lacoxjorj8NxD3zc2uH32P5fWOu2xqjVTWym0/edit
-*
-*new Date(data1.getTime() - (1728 * 100000000)
 */
 package br.com.sankhya.gerenciateatro.dominio;
 
